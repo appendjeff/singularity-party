@@ -1,15 +1,31 @@
 <html>
   <head>
+    <script src="yourwebsite/myscript" />
+
+        <script>
+          function buildMessage(q, m) {
+            return `<div><hr><div>${q}</div><div>${m}</div>`;
+          }
+          function onSend() {
+            var qEl = document.getElementById('q');
+            var q = qEl.value;
+            var m = document.createElement('div');
+            m.innerHTML = buildMessage(q, "Hi, I'm Monty");
+            qEl.value = '';
+            document.getElementById('m').appendChild(m);
+          }
+        </script>
   </head>
   <body>
     <h1>Monty</h1>
-    <div id="messages">
+    <div id="m">
     </div>
     <div>
     </div>
-    <div id="montyInput">
-        <input type="text" placeholder="talk to monty">
-        <button type="button">Send</button>
+    <hr>
+    <div>
+        <input id="q" type="text" placeholder="talk to monty">
+        <button onclick="onSend()" id="s" type="button">Send</button>
     </div>
   </body>
 </html>
